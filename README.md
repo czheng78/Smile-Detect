@@ -12,7 +12,7 @@ Instructions : macOS
 
 You need to have CMake installed on your computer in order to run this program.
 
-You will also need to include the text file CMakeLists.txt and an image named image.jpg in your folder.
+You will also need to include the text file CMakeLists.txt in your folder.
 
 Open Terminal and navigate to the folder that contains smiledetect.cpp and CMakeLists.txt.
 
