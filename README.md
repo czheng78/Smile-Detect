@@ -22,4 +22,4 @@ Open Terminal and navigate to the folder that contains smiledetect.cpp and CMake
 
 make
 
-./smiledetect
+./smiledetect --cascade=".../opencv-3.3.0/data/haarcascades/haarcascade_frontalface_alt.xml" --smile-cascade=".../opencv-3.3.0/data/haarcascades/haarcascade_smile.xml" --scale=4.0
