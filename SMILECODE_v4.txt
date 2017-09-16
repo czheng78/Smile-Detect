@@ -6,21 +6,6 @@
 using namespace std;
 using namespace cv;
 
-static void help()
-{
-    cout << "\nThis program demonstrates the smile detector.\n"
-            "Usage:\n"
-            "./smiledetect [--cascade=<cascade_path> this is the frontal face classifier]\n"
-            "   [--smile-cascade=[<smile_cascade_path>]]\n"
-            "   [--scale=<image scale greater or equal to 1, try 2.0 for example. The larger the faster the processing>]\n"
-            "   [--try-flip]\n"
-            "   [video_filename|camera_index]\n\n"
-            "Example:\n"
-            "./smiledetect --cascade=\"../../data/haarcascades/haarcascade_frontalface_alt.xml\" --smile-cascade=\"../../data/haarcascades/haarcascade_smile.xml\" --scale=2.0\n\n"
-            "During execution:\n\tHit any key to quit.\n"
-            "\tUsing OpenCV version " << CV_VERSION << "\n" << endl;
-}
-
 void detectAndDraw( Mat& img, CascadeClassifier& cascade,
                     CascadeClassifier& nestedCascade,
                     double scale, bool tryflip );
