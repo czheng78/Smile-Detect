@@ -27,3 +27,18 @@ Open Terminal and navigate to the folder that contains smiledetect.cpp and CMake
 
 
 -------------------------------------------
+***Instructions : Windows***
+
+You need the OpenCV library downloaded on your windows PC to run this program.
+
+You need Visual Studio and CMake in order to run your C++ program.
+
+You will also need to include the text file CMakeLists.txt in your folder.
+
+Open Terminal and navigate to the folder that contains smiledetect.cpp and CMakeLists.txt.
+
+-/Applications/CMake.app/Contents/bin/cmake .
+
+-make
+
+-./smiledetect --cascade=".../opencv-3.3.0/data/haarcascades/haarcascade_frontalface_alt.xml" --smile-cascade=".../opencv-3.3.0/data/haarcascades/haarcascade_smile.xml" --scale=4.0
