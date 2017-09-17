@@ -9,8 +9,8 @@ using namespace cv;
 ///added by zhiyu
 void mergeImg(Mat & dst,Mat &src1,Mat &src2)
 {
-    int rows = src1.rows+5+src2.rows;
-    int cols = src1.cols+5+src2.cols;
+    int rows = src1.rows+5+src2.rows;//here we get the rows of the picture
+    int cols = src1.cols+5+src2.cols;//here we get the cols of the picture.
     CV_Assert(src1.type () == src2.type ());
     dst.create (rows,cols,src1.type ());
     src1.copyTo (dst(Rect(0,0,src1.cols,src1.rows)));
@@ -233,7 +233,7 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
             
             
             ////////////
-            mergeImg(outImg,img,frame01);
+            mergeImg(outImg,img,frame01);//we merge the outImg and the frame01.
             imshow("merge",outImg);
         }
     }
