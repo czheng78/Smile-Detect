@@ -249,13 +249,14 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
         int rect_height = cvRound((float)img.rows * intensityZeroOne);
         Scalar col = Scalar((float)255 * intensityZeroOne, 0, 0);
         rectangle(img, cvPoint(0, img.rows), cvPoint(img.cols/10, img.rows - rect_height), col, -1);
-        cout<<rect_height<<endl;
+
         //added by zyw.
 
         if (rect_height>500)
         {
             Mat frame01=img;
             imshow("smilerecord",frame01);
+                    cout<<rect_height<<endl;//I think output the smile point here would be much more suitable,cuz only when the recorder have been triggered, the point is meanningful.
         }
     }
 
