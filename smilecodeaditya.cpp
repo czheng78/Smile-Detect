@@ -143,7 +143,7 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
         //|CASCADE_FIND_BIGGEST_OBJECT
         //|CASCADE_DO_ROUGH_SEARCH
         |CASCADE_SCALE_IMAGE,
-        Size(10, 10) );
+        Size(30, 30) );
     if( tryflip )
     {
         flip(smallImg, smallImg, 1);
@@ -152,7 +152,7 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
                                  //|CASCADE_FIND_BIGGEST_OBJECT
                                  //|CASCADE_DO_ROUGH_SEARCH
                                  |CASCADE_SCALE_IMAGE,
-                                 Size(50, 50) );
+                                 Size(30, 30) );
         for( vector<Rect>::const_iterator r = faces2.begin(); r != faces2.end(); ++r )
         {
             faces.push_back(Rect(smallImg.cols - r->x - r->width, r->y, r->width, r->height));
@@ -165,15 +165,15 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
         Mat smallImgROI;
         vector<Rect> nestedObjects;
         Point center;
-        Scalar color = colors[i%10];
+        Scalar color = colors[i%8];
         int radius;
 
         double aspect_ratio = (double)r.width/r.height;
         if( 0.75 < aspect_ratio && aspect_ratio < 1.3 )
         {
-            center.x = cvRound((r.x + r.width*1.0)*scale);
-            center.y = cvRound((r.y + r.height*1.0)*scale);
-            radius = cvRound((r.width + r.height)*0.50*scale);
+            center.x = cvRound((r.x + r.width*0.5)*scale);
+            center.y = cvRound((r.y + r.height*0.5)*scale);
+            radius = cvRound((r.width + r.height)*0.25*scale);
             circle( img, center, radius, color, 3, 8, 0 );
         }
         else
