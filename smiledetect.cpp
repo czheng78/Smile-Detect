@@ -1,11 +1,24 @@
 #include "opencv2/objdetect.hpp"
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
+#include "opencv2/opencv.hpp"
 #include <iostream>
 
 using namespace std;
 using namespace cv;
+///added by zhiyu
+void mergeImg(Mat & dst,Mat &src1,Mat &src2)
+{
+    int rows = src1.rows+5+src2.rows;
+    int cols = src1.cols+5+src2.cols;
+    CV_Assert(src1.type () == src2.type ());
+    dst.create (rows,cols,src1.type ());
+    src1.copyTo (dst(Rect(0,0,src1.cols,src1.rows)));
+    src2.copyTo (dst(Rect(src1.cols+5,0,src2.cols,src2.rows)));
+}
 
+
+///end added by zhiyu
 
 static void help()
 {
@@ -209,19 +222,17 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
         int rect_height = cvRound((float)img.rows * intensityZeroOne);
         Scalar col = Scalar((float)255 * intensityZeroOne, 0, 0);
         rectangle(img, cvPoint(0, img.rows), cvPoint(img.cols/10, img.rows - rect_height), col, -1);
-        //cout<<rect_height<<endl;
+        cout<<rect_height<<endl;
         //added by zyw.
 
-        if (rect_height>400)
+        if (rect_height>500)
         {
             Mat frame01=img;
             imshow("smilerecord",frame01);
         }
     }
 
-    
 
-    
-    ////////////
     imshow( "result", img );
 }
+
